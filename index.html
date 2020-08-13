@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>frecuencia</title>
+<style>
+
+body{background-color:gray;}
+
+
+</style>
+<link  rel="icon" href="https://lh3.googleusercontent.com/proxy/N9V2L5TyOd7hSSXLsL4v78XB8g6qf-qn71MWoZT5_jH1marpskzweUAp4T29kusvkTCG7KJLkNZ7hTIqWkVj_A6zoJ_0yo6E7C1YBShrdQ76pnmBm30" type="image/png" />
+
+</head>
+<body align="center">
+
+<h1 id="w">WELCOME</h1>
+    
+<canvas widt="300" height="300" id="can"></canvas>
+
+<script>
+
+var ctx = document.getElementById('can').getContext('2d');
+
+var D = 0;
+var A = 0;
+var I = 0;
+var AB = 0;
+
+
+
+document.addEventListener('keypress', function FTP(event){
+var tpc = event.which;
+var tp = String.fromCharCode(tpc);
+
+ctx.clearRect (0 ,0 , 500 , 500 );
+
+ctx.fillStyle = 'rgba(0, 0, 200, 10)';
+        ctx.fillRect(D, A, 50, 50);
+
+if(tp=="K"){D-=10;}
+
+    if(tp=="Ñ"){D+=10;}
+
+        if(tp=="O"){A-=10;}
+
+            if(tp=="L"){A+=10}
+
+                if(tp=="H"){
+                    var pt = A;
+                    while(pt > -10){
+                    ctx.fillStyle = 'rgba(250, 0, 0, 0.5)';
+                    ctx.fillRect(D+20, pt, 10, 10);
+
+ctx.clearRect (D+20 ,pt-10 , 10 , 10 );
+                    pt--;
+                    
+
+                    }
+                    
+                }
+                    
+                
+
+          
+});
+         
+    
+</script>
+
+</body>
+
+</html>
