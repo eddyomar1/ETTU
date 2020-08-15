@@ -19,67 +19,81 @@ body{background-color:gray;}
 
 <script>
 
-function init() {
-    game = new Game();
 
-    setInterval(function() {
-       game.loop();
-    },50);
-}
-
-function Game(){
-    this.loop = function(){
-      //Lógica del juego 
-    
 
 var ctx = document.getElementById('can').getContext('2d');
 
 var D = 0;
 var A = 0;
 var I = 0;
-var AB = 0;
-var pp = false;
+var dir = {
+    u:0,
+    d:1,
+    l:2,
+    r:3
+};
+
+var rayo = {PX:0,PY:0}
+
+function nave(){
+
+    ctx.fillStyle = 'rgba(0, 0, 200, 10)';
+        ctx.fillRect(D, A, 50, 50);    
+    }
 
 
-document.addEventListener('keypress', function FTP(event){
+
+    function bordis(){
+        var bor = A;
+            while(bor > -10){
+            ctx.clearRect (D+20 ,bor-10 , 10 , 10 );
+                    bor--;}
+
+                    
+    }
+
+document.addEventListener('keypress', function(event){
 var tpc = event.which;
 var tp = String.fromCharCode(tpc);
 
 ctx.clearRect (0 ,0 , 500 , 500 );
 
-ctx.fillStyle = 'rgba(0, 0, 200, 10)';
-        ctx.fillRect(D, A, 50, 50);
 
 if(tp=="K"){D-=10;}
 
-    if(tp=="Ñ"){D+=10;}
+    if(tp=="P"){D+=10;}
 
         if(tp=="O"){A-=10;}
 
             if(tp=="L"){A+=10}
 
                 if(tp=="H"){
-                    var pt = A;
-                    while(pt > -10){
-                    ctx.fillStyle = 'rgba(250, 0, 0, 0.5)';
-                    ctx.fillRect(D+20, pt, 10, 10);
+                   
+                    function raka(){
+                        var pt = A;
+            while(pt > -10){
+            ctx.fillStyle = 'rgba(250, 0, 0, 0.5)';
+            ctx.fillRect(D+20, pt, 10, 10);
+                    pt--;}
 
-ctx.clearRect (D+20 ,pt-10 , 10 , 10 );
-                    pt--;
-                    
-
-                    }
-
-                    
                     
                 }
+                setInterval(raka, 500);    
+                setInterval(bordis, 1000);
+
+
+            }
+
+                    
+        
+                
                     
                 
-
+nave();
           
 });
-}
-}  
+
+
    
    
 
