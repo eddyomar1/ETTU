@@ -19,13 +19,26 @@ body{background-color:gray;}
 
 <script>
 
+function init() {
+    game = new Game();
+
+    setInterval(function() {
+       game.loop();
+    },50);
+}
+
+function Game(){
+    this.loop = function(){
+      //Lógica del juego 
+    
+
 var ctx = document.getElementById('can').getContext('2d');
 
 var D = 0;
 var A = 0;
 var I = 0;
 var AB = 0;
-
+var pp = false;
 
 
 document.addEventListener('keypress', function FTP(event){
@@ -56,6 +69,8 @@ ctx.clearRect (D+20 ,pt-10 , 10 , 10 );
                     
 
                     }
+
+                    
                     
                 }
                     
@@ -63,8 +78,11 @@ ctx.clearRect (D+20 ,pt-10 , 10 , 10 );
 
           
 });
-         
-    
+}
+}  
+   
+   
+
 </script>
 
 </body>
